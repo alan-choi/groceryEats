@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "name": "Kawaii Crafting",
+  "launch_path": "/index.html",
+  "description": "Marie's Blog",
+  "developer": {
+    "name": "Alan Choi",
+    "url": ""
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "Kawaii Crafting",
+      "description": "Marie's Blog"
+    }
+  }
+}

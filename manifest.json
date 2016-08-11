@@ -1,0 +1,7 @@
+{
+  "name": "Kawaii Crafting",
+  "short_name": "Kawaii Crafting",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}

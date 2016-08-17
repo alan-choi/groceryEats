@@ -7,7 +7,7 @@ export default class HomePage extends React.Component {
   render(){
     return(
       <div>
-        Hello!
+        Hello from React!
         <LoginForm />
       </div>
     );

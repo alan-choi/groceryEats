@@ -32,14 +32,13 @@
   "private": true,
   "src": "src",
   "test": "test",
-  "dist": "dist",
+  "public": "public",
   "mainInput": "src/app.js",
   "mainOutput": "index.html",
   "scripts": {
-    "start": "BUILD_DEV=1 webpack-dev-server -d --watch --progress --colors --port 8000 --inline --content-base dist/",
-    "babel": "babel --presets es2015,stage-0 --ignore node_modules,public",
+    "start": "webpack --progress --colors --watch",
     "build": "NODE_ENV=production webpack -d --production --progress --colors",
-    "nodemon": "nodemon dist/server.js"
+    "nodemon": "nodemon public/server.js"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",

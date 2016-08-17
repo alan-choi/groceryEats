@@ -9,7 +9,7 @@ module.exports = {
   entry: {app: ['./src/app.js']},
   output: {
     publicPath: '/',
-    path: 'dist/',
+    path: 'public/',
     filename: "bundle.js",
     sourceMapFilename: "[file].map"
   },
@@ -32,10 +32,13 @@ module.exports = {
           cacheDirectory: true}},
       { test: /\.json$/, loader: 'json'},
       { test: /\.css$/, exclude: /.(\-|\.)min.css$/, loader: 'style!css!postcss'},
-      { test: /\.sass/, loader: 'style!css!sass?sourceMap=true&indentedSyntax=sass&includePaths[]=' + (__dirname, "./src")},
+      { test: /\.sass/, loader: 'style!css!sass?sourceMap'},
       { test: /\.(png|jpg|jpeg|svg|gif)$/, exclude:/icons/, loader: 'url?limit=8192&name=assets/images/[name].[ext]'},
       { test: /\.(png|jpg|jpeg|svg|gif)$/, include:/icons/, loader: 'file?name=[name].[ext]'},
       { test: [/index\.html$/, /\.(ico)/], loader: 'file?name=[name].[ext]'}]
+  },
+  sassLoader: {
+    includePaths: path.resolve(__dirname + "./src")
   },
   plugins: [new HtmlWebpackPlugin({
     filename: 'index.html',

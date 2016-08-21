@@ -1,4 +1,6 @@
 import React from 'react';
+import {loginUser, getCurrentUser} from '../actions/auth';
+
 
 export default class LoginForm extends React.Component {
   constructor(props){
@@ -10,7 +12,12 @@ export default class LoginForm extends React.Component {
     e.preventDefault();
     let email = this.refs.email.value;
     let password = this.refs.password.value;
+    loginUser(email, password);
     console.log(email, password);
+  }
+
+  handleClick(){
+    getCurrentUser();
   }
 
   render(){

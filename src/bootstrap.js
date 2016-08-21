@@ -2,15 +2,16 @@ import React from 'react';
 import {render} from 'react-dom';
 import { Provider } from 'react-redux';
 import { Route, Router, browserHistory } from 'react-router';
-import configureStore from './store/configureStore';
+import store, { history } from './store/store';
 import routes from './routes';
+import AdminPage from './pages/AdminPage';
+import ReduxApp from './ReduxApp';
 
-import HomePage from './pages/HomePage';
-
-const store = configureStore();
 const app = (
   <Provider store={store}>
-    <Router history={browserHistory} routes={routes} />
+    <Router history={history}>
+      { routes }
+    </Router>
   </Provider>
 )
 

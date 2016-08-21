@@ -12,7 +12,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8000',
     'webpack/hot/only-dev-server',
-    './src/app.js'],
+    './src/bootstrap.js'],
   output: {
     publicPath: '/',
     path: 'public/',
@@ -63,8 +63,9 @@ module.exports = {
     contentBase: '/public',
     quiet: true,
     colors: true,
-
+    proxy: {'*': {target: 'http://localhost:8080'}},
   },
+  
   resolveLoader: {
     root: [path.join(__dirname, "node_modules"), './src', 'vendor'],
   }

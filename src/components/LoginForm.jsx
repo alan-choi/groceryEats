@@ -6,18 +6,26 @@ export default class LoginForm extends React.Component {
   constructor(props){
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleSubmit(e){
     e.preventDefault();
     let email = this.refs.email.value;
     let password = this.refs.password.value;
-    loginUser(email, password);
-    console.log(email, password);
+    // this.props.processLogin();
+    loginUser(email, password).then((res)=>{
+      console.log(res);
+      console.log('loggedin!');
+    });
   }
 
   handleClick(){
-    getCurrentUser();
+    getCurrentUser.then((res)=>{
+      console.log(res);
+    }).catch((err)=>{
+      console.log(err);
+    });
   }
 
   render(){
@@ -39,6 +47,7 @@ export default class LoginForm extends React.Component {
           <input
             type="submit" />
         </form>
+        <button onClick={this.handleClick}>get user</button>
       </div>
     )
   }

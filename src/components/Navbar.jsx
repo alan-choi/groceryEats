@@ -9,6 +9,7 @@ export default class Navbar extends React.Component{
       <p>home</p>
       <Link to="/admin">about</Link>
       <p>contact</p>
+      <p onClick={this.props.logOutUser}>Log Out</p>
     </div>
     )
   }

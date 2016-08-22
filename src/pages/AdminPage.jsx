@@ -1,14 +1,19 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm';
+import RichEditorExample from './richExample';
 
-import '../styles/main.sass';
+import './richTextExample.css';
 
 export default class AdminPage extends React.Component {
+  constructor(){
+    super()
+  }
   render(){
     return(
       <div>
-        HELLO
-        <LoginForm />
+        <RichEditorExample />
+
+        {/* <LoginForm {...this.props} /> */}
       </div>
     );
   }

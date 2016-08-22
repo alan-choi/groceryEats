@@ -5,15 +5,21 @@ Firebase.initializeApp(fireConfig);
 // const fireRef = new Firebase(fireConfig);
 
 export const loginUser = (email, password)=>{
-      Firebase.auth().signInWithEmailAndPassword(email, password).catch((error)=>{
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      console.log(error)
+  Firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((res)=>{
+      console.log("successfully logged in user", res);
     })
-  }
+    .catch((error)=>{
+    let errorCode = error.code;
+    let errorMessage = error.message;
+    console.log(error)
+  })
+}
 
-export const getCurrentUser = () => {
-  let currentUser = Firebase.auth().currentUser;
-  console.log(currentUser);
-  return currentUser;
+export const getCurrentUser = new Promise((resolve, reject) => {
+  return Firebase.auth().currentUser;
+})
+
+export const signOutUser = () => {
+  return Firebase.auth().signOut();
 }

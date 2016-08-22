@@ -1,5 +1,5 @@
 {
-  "name": "KawaiiCrafting",
+  "name": "new-start",
   "version": "0.0.1",
   "dependencies": {
     "axios": "^0.13.1",
@@ -26,6 +26,7 @@
     "react-router": "^2.3.0",
     "react-router-redux": "^4.0.5",
     "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0",
     "uuid": "^2.0.1"
   },
   "description": "",

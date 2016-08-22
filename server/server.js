@@ -39,6 +39,10 @@ app.use(compress());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+})
+
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.listen(process.env.PORT || 8080, '0.0.0.0');

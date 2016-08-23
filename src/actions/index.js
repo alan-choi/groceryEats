@@ -5,6 +5,6 @@
 //     error: data.error
 //   };
 // }
-import Auth from './auth';
-
-export default Auth;
+// import Auth from './auth';
+//
+// export default Auth;

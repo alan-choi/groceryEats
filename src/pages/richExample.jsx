@@ -52,16 +52,11 @@ _toggleInlineStyle(inlineStyle) {
 
 logRaw(){
   let content = this.state.editorState.getCurrentContent();
-  console.log(content);
-  // let newContent = {blockMap: content.blockMap, sectionBefore: content.sectionBefore, sectionAfter: content.sectionAfter};
   let raw = convertToRaw(content);
-  this.setState({entries: content});
+  console.log('CONTENT', content);
   console.log('RAW ',raw);
-}
 
-logNotRaw(content){
-  console.log(content);
-  return EditorState.createWithContent(content)
+  this.props.submitPost(0, raw);
 }
 
 render() {

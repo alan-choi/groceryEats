@@ -11,9 +11,9 @@ export default class AdminPage extends React.Component {
   render(){
     return(
       <div>
-        <RichEditorExample />
-
-        {/* <LoginForm {...this.props} /> */}
+        <LoginForm {...this.props} />
+        <br></br>
+        <RichEditorExample {...this.props} />
       </div>
     );
   }

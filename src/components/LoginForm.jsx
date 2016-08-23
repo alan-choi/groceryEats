@@ -1,5 +1,5 @@
 import React from 'react';
-import {loginUser, getCurrentUser} from '../actions/auth';
+// import {loginUser, getCurrentUser} from '../actions/auth';
 
 
 export default class LoginForm extends React.Component {
@@ -14,18 +14,11 @@ export default class LoginForm extends React.Component {
     let email = this.refs.email.value;
     let password = this.refs.password.value;
     // this.props.processLogin();
-    loginUser(email, password).then((res)=>{
-      console.log(res);
-      console.log('loggedin!');
-    });
+    this.props.loginUser(email, password)
   }
 
   handleClick(){
-    getCurrentUser.then((res)=>{
-      console.log(res);
-    }).catch((err)=>{
-      console.log(err);
-    });
+    this.props.getCurrentUser();
   }
 
   render(){

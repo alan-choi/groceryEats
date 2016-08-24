@@ -5,7 +5,9 @@ import thunk from 'redux-thunk';
 import rootReducer from '../reducers/index';
 
 const defaultState = {
-
+  postState: {
+    currentPostContent: null
+  }
 };
 
 const store = createStore(rootReducer, defaultState, applyMiddleware(thunk));

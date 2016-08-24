@@ -53,10 +53,11 @@ _toggleInlineStyle(inlineStyle) {
 logRaw(){
   let content = this.state.editorState.getCurrentContent();
   let raw = convertToRaw(content);
+  let contentAgain = convertFromRaw(raw);
   console.log('CONTENT', content);
-  console.log('RAW ',raw);
-
-  this.props.submitPost(0, raw);
+  console.log('RAW ', raw);
+  console.log('CONTENT AGAIN', contentAgain);
+  // this.props.submitPost(1, raw);
 }
 
 render() {

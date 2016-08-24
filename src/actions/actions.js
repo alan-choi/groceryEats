@@ -3,12 +3,19 @@ import Firebase from 'firebase';
 Firebase.initializeApp(fireConfig);
 
 const database = Firebase.database();
-// function writeUserData(userId, name, email, imageUrl) {
-//   firebase.database().ref('users/' + userId).set({
-//     username: name,
-//     email: email,
-//     profile_picture : imageUrl
-//   });
+// var userId = firebase.auth().currentUser.uid;
+// return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+//   var username = snapshot.val().username;
+//   // ...
+// });
+
+function setCurrentPost(post) {
+  console.log("RECEIVED CURRENT POST", post);
+  return {
+    type: "RECEIVED_POST",
+    post
+  }
+}
 
 function receiveDataPost(res){
   console.log("POST SUCCESS!", res);
@@ -35,6 +42,17 @@ function displayError(err) {
   return {
     type: "ERROR",
     err
+  }
+}
+
+export const getOnePost = (postId) => {
+  console.log("GETTING ONE POST", postId);
+  return dispatch => {
+    return Firebase.database().ref('posts/'+ postId).once('value')
+      .then((snapshot) => {
+        let post = snapshot.val()
+        dispatch(setCurrentPost(post))})
+      .catch((err) => dispatch(displayError(err)))
   }
 }
 
